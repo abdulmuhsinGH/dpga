@@ -20,8 +20,8 @@ describe("projects", () => {
   describe("POST /projects", () => {
     it("should create a new projects", (done) => {
       const project = {
-        name: "accra",
-        description: "test country",
+        name: "Open CSRV",
+        description: "test project",
         tech_stack: ["nodejs"],
       };
       request(app)
@@ -36,13 +36,12 @@ describe("projects", () => {
         .end(done);
     });
 
-    it("should return error if city are missing", (done) => {
+
+    it("should return error if diescription is missing", (done) => {
       const project = {
-        name: "accra",
-        description: "test country",
+        name: "Open CSRV",
         tech_stack: ["nodejs"],
       };
-
       request(app)
         .post("/projects")
         .send(project)
@@ -53,15 +52,14 @@ describe("projects", () => {
         .end(done);
     });
 
-    it("should return error if country are missing", (done) => {
+    it("should return error if tech_Stack are missing", (done) => {
       const project = {
-        name: "accra",
+        name: "Open CSRV",
         description: "test country",
-        tech_stack: ["nodejs"],
       };
       request(app)
         .post("/projectss")
-        .send(projects)
+        .send(project)
         .expect(constants.HTTP_STATUS_BAD_REQUEST)
         .expect((res) => {
           expect(res.error.text).to.equal("Missing required fields");
@@ -69,78 +67,24 @@ describe("projects", () => {
         .end(done);
     });
 
-    it("should return error if date are missing", (done) => {
+    it("should return error if name is missing", (done) => {
       const project = {
-        name: "accra",
-        description: "test country",
+        description: "test project",
         tech_stack: ["nodejs"],
       };
       request(app)
         .post("/projects")
-        .send(projects)
+        .send(project)
         .expect(constants.HTTP_STATUS_BAD_REQUEST)
         .expect((res) => {
           expect(res.error.text).to.equal("Missing required fields");
-        })
-        .end(done);
-    });
-
-    it("should return error if projects_desc are missing", (done) => {
-      const project = {
-        name: "accra",
-        description: "test country",
-        tech_stack: ["nodejs"],
-      };
-      request(app)
-        .post("/projectss")
-        .send(projects)
-        .expect(constants.HTTP_STATUS_BAD_REQUEST)
-        .expect((res) => {
-          expect(res.error.text).to.equal("Missing required fields");
-        })
-        .end(done);
-    });
-
-    it("should return error if client_id are missing", (done) => {
-      const project = {
-        name: "accra",
-        description: "test country",
-        tech_stack: ["nodejs"],
-      };
-      request(app)
-        .post("/projects")
-        .send(projects)
-        .expect(constants.HTTP_STATUS_BAD_REQUEST)
-        .expect((res) => {
-          expect(res.error.text).to.equal("Missing required fields");
-        })
-        .end(done);
-    });
-
-    it("should return error if client_id is not a number", (done) => {
-      const project = {
-        name: "accra",
-        description: "test country",
-        tech_stack: ["nodejs"],
-      };
-      request(app)
-        .post("/projects")
-        .send(projects)
-        .expect(constants.HTTP_STATUS_BAD_REQUEST)
-        .expect((res) => {
-          expect(res.error.text).to.equal("client_id must be a number");
         })
         .end(done);
     });
   });
 
   describe("GET /projects", () => {
-    it("should return all projectss", (done) => {
-      const project = {
-        name: "accra",
-        description: "test country",
-        tech_stack: ["nodejs"],
-      };
+    it("should return all projects", (done) => {
       request(app)
         .get("/projects")
         .expect(constants.HTTP_STATUS_OK)

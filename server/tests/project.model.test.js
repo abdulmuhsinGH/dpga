@@ -5,18 +5,13 @@ require("../index");
 const pool = require("../db");
 const {
   insertProject,
-  selectAllprojectss,
+  findAllProjects,
 } = require("../model/projects.model");
 
 const testprojectsData = {
-  city: "test city",
-  country: "test country",
-  date: "12/12/12",
-  projects_desc: "test projects desc",
-  client_id: 1,
-  weather_report: {
-    description: "test weather report",
-  },
+  name: "Open CSRV",
+  description: "test project",
+  tech_stack: ["nodejs"],
 };
 
 describe("projects model", () => {
@@ -31,16 +26,16 @@ describe("projects model", () => {
   it("should catch error if insert fails", async () => {
     sinon.stub(pool, "query").rejects({ message: "error" });
     try {
-      await insertprojects(testprojectsData);
+      await insertProject(testprojectsData);
     } catch (error) {
       expect(error.message).equal("error");
     }
     sinon.restore();
   });
 
-  it("should select all projectss", async () => {
+  it("should select all projects", async () => {
     sinon.stub(pool, "query").resolves({ rows: [testprojectsData] });
-    const result = await selectAllprojectss();
+    const result = await findAllProjects();
     expect(result.length).equal(1);
     sinon.restore();
   });
@@ -49,7 +44,7 @@ describe("projects model", () => {
   it("should catch error if select fails", async () => {
     sinon.stub(pool, "query").rejects({ message: "error" });
     try {
-      await selectAllprojectss();
+      await findAllProjects();
     } catch (error) {
       expect(error.message).equal("error");
     }
