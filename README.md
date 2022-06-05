@@ -70,7 +70,8 @@ User C - Developer
     - Project cost 
     - Developer desired remuneration 
 
-
+## Prototype Focus
+Matching Devlopers to Projects
 
 ## Requirements before running application
 - Node.js installed
