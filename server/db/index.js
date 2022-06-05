@@ -56,6 +56,7 @@ const projectsTableSQL = `CREATE TABLE IF NOT EXISTS projects (
 const usersTableSQL = `CREATE TABLE IF NOT EXISTS users (
     id serial PRIMARY KEY,
     name varchar NOT NULL,
+    username varchar NOT NULL,
     email varchar NOT NULL,
     password varchar NOT NULL,
     user_type varchar NOT NULL,
@@ -97,11 +98,11 @@ executeWithClient(projectsTableSQL).then(async (result) => {
 executeWithClient(usersTableSQL).then(async (result) => {
   console.log("Table users created");
   const seed = [
-    `INSERT INTO users (name, username, password, tech_stack, is_available, user_type) VALUES ('Kanaan', 'knaan', 'knaan', ARRAY ['nodejs'], true, 'developer')`,
-    `INSERT INTO users (name, username, password, tech_stack, is_available, user_type) VALUES  ('Kwesi', 'kwesi', 'kwesi', ARRAY ['java'], true, 'developer')`,
-    `INSERT INTO users (name, username, password, tech_stack, is_available, user_type) VALUES  ('Robert', 'robert', 'robert', ARRAY ['python'], true, 'developer')`,
-    `INSERT INTO users (name, username, password, tech_stack, is_available, user_type) VALUES  ('Eric', 'eric', 'eric', ARRAY ['c++'], true, 'reviewer')`,
-    `INSERT INTO users (name, username, password, tech_stack, is_available, user_type) VALUES  ('Christian', 'christian', 'christian', ARRAY ['android'], true, 'developer')`
+    `INSERT INTO users (name, username, email,password, tech_stack, is_available, user_type) VALUES ('Kanaan', 'knaan', 'knaan@email.com','knaan', ARRAY ['nodejs'], true, 'developer')`,
+    `INSERT INTO users (name, username, email,password, tech_stack, is_available, user_type) VALUES  ('Kwesi', 'kwesi', 'kwesi@email.com', 'kwesi', ARRAY ['java'], true, 'developer')`,
+    `INSERT INTO users (name, username, email,password, tech_stack, is_available, user_type) VALUES  ('Robert', 'robert', 'robert@email.com','robert', ARRAY ['python'], true, 'developer')`,
+    `INSERT INTO users (name, username, email,password, tech_stack, is_available, user_type) VALUES  ('Eric', 'eric', 'eric@email.com','eric', ARRAY ['c++'], true, 'reviewer')`,
+    `INSERT INTO users (name, username, email,password, tech_stack, is_available, user_type) VALUES  ('Christian', 'christian', 'christian@email.com','christian', ARRAY ['android'], true, 'developer')`
   ]
   const res = await Promise.all(seed.map(async (insertQuery) => await executeWithClient(insertQuery)));
   console.log("Seeded users", res)

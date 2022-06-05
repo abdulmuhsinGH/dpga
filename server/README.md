@@ -13,14 +13,14 @@
   `PG_DB`
   `PG_PORT` before starting the server or running the test.
 
-### How to run server the application
+### How to run the application
 
-- `npm start` - starts the server
-- `npm run test` - runs the tests. Integration tests require you have a database available to connect for test. you can set up the configuration for the test environment in your `config.json`.
+- `docker-compose up` - starts the server, client and databse service
+
 
 ### Endpoints
 
-- GET `/projectss`
+- GET `/projects`
   - returns all projects reports
-- POST `/projectss`
+- POST `/projects`
   - saves a new projects reports
