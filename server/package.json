@@ -1,0 +1,34 @@
+{
+  "name": "enyata-code-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
+    "test": "NODE_ENV=test mocha --reporter spec ./tests/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdulmuhsinGH/enyata-code-challenge.git"
+  },
+  "author": "abdul.iddris13@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdulmuhsinGH/enyata-code-challenge/issues"
+  },
+  "homepage": "https://github.com/abdulmuhsinGH/enyata-code-challenge#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "sinon": "^12.0.1",
+    "supertest": "^6.2.1"
+  }
+}

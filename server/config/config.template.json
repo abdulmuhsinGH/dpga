@@ -1,0 +1,35 @@
+{
+  "test": {
+    "PORT": 3000,
+    "PG_HOST": "",
+    "PG_USER": "",
+    "PG_PASSWORD": "",
+    "PG_DB": "",
+    "PG_PORT": 5433,
+    "OPEN_WEATHER_API_KEY": "",
+    "OPEN_WEATHER_API_URL": "http://api.openweathermap.org/data/2.5/weather",
+    "JWT_SECRET": ""
+  },
+  "development": {
+    "PORT": 3000,
+    "PG_HOST": "",
+    "PG_USER": "",
+    "PG_PASSWORD": "",
+    "PG_DB": "",
+    "PG_PORT": 5433,
+    "OPEN_WEATHER_API_KEY": "",
+    "OPEN_WEATHER_API_URL": "http://api.openweathermap.org/data/2.5/weather",
+    "JWT_SECRET": ""
+  },
+  "production": {
+    "PORT": 3000,
+    "PG_HOST": "",
+    "PG_USER": "",
+    "PG_PASSWORD": "",
+    "PG_DB": "",
+    "PG_PORT": 5433,
+    "OPEN_WEATHER_API_KEY": "",
+    "OPEN_WEATHER_API_URL": "http://api.openweathermap.org/data/2.5/weather",
+    "JWT_SECRET": ""
+  }
+}
